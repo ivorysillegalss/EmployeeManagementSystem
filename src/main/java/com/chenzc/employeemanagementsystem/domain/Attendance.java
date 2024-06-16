@@ -9,6 +9,10 @@ public class Attendance {
     private Integer attendanceId;
     private Integer empId;
     private Integer date;
+
+    /**
+     * @see com.chenzc.employeemanagementsystem.enums.JobAttendanceEnums
+     */
     private String status;
 
 }
