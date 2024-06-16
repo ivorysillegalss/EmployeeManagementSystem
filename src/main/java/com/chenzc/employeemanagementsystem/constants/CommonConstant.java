@@ -15,4 +15,7 @@ public class CommonConstant {
     public static final Integer ORIGINAL_SALARY = 10000;
     public static final Integer ORIGINAL_BONUS = 0;
     public static final Integer ORIGINAL_DEDUCTIONS = 0;
+
+    public static final String INSERT_OPERATOR = "insert operator";
+    public static final String MODIFY_PERMISSION = "modify permission";
 }

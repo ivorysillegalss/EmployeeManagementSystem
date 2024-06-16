@@ -1,5 +1,6 @@
 package com.chenzc.employeemanagementsystem.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.chenzc.employeemanagementsystem.enums.JobStatusEnums;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +17,7 @@ import lombok.experimental.Accessors;
 @Builder
 @Accessors(chain = true)
 public class Employee {
+    @TableId
     private Integer empId;
 
     private String name;
