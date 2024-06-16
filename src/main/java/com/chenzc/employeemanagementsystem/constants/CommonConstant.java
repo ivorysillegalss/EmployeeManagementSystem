@@ -7,6 +7,12 @@ package com.chenzc.employeemanagementsystem.constants;
 public class CommonConstant {
     public static final Integer INTEGER_TRUE = 1;
     public static final Long LONG_TRUE = 1L;
-
     public static final String STRING_TRUE = "1";
+
+    /**
+     * 奖金相关
+     */
+    public static final Integer ORIGINAL_SALARY = 10000;
+    public static final Integer ORIGINAL_BONUS = 0;
+    public static final Integer ORIGINAL_DEDUCTIONS = 0;
 }

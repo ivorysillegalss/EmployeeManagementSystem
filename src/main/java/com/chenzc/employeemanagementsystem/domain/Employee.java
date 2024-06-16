@@ -32,6 +32,9 @@ public class Employee {
 
     private Integer departmentId;
 
+    private String departmentName;
+//    冗余数据 不用多查表
+
     private Integer positionId;
 
     private Integer titleId;

@@ -8,8 +8,8 @@ import lombok.Data;
 public class Salary {
     private Integer salaryId;
     private Integer empId;
-    private Integer Bonus;
+    private Integer bonus;
     private Integer deductions;
     private Integer totalSalary;
-    private Integer salaryDate;
+    private Long salaryDate;
 }
