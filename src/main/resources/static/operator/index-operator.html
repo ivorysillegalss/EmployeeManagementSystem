@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员页面</title>
+    <link rel="stylesheet" href="operator-styles.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>管理员操作</h1>
+        
+        <div class="section">
+            <h2>查看操作日志</h2>
+            <input type="text" id="operatorId" placeholder="操作用户的id">
+            <button onclick="getOperationLogById()">根据ID获取操作日志</button>
+            <div id="logResult"></div>
+            <ul id="logList"></ul>
+        </div>
+
+        <div class="section">
+            <h2>修改用户权限</h2>
+            <!-- <input type="text" id="modifyOperatorId" placeholder="操作员ID">
+            <input type="text" id="modifyUserId" placeholder="用户ID">
+            <input type="text" id="newRole" placeholder="新角色"> -->
+            <!-- <button onclick="modifyPermission()">修改权限</button> -->
+            <button id="modify">修改权限</button>
+            <div id="modifyResult"></div>
+        </div>
+
+        <div class="section">
+            <h2>插入新操作员</h2>
+            <!-- <input type="text" id="insertOperatorId" placeholder="操作员ID">
+            <input type="text" id="operator" placeholder="操作员信息">
+            <input type="text" id="user" placeholder="用户信息"> -->
+            <!-- <button onclick="insertNewOperator()">插入新操作员</button> -->
+            <button id="insert">插入新操作员</button>
+            <div id="insertResult"></div>
+        </div>
+
+        <div class="section">
+            <h2>退出登录</h2>
+            <button id="exit">退出登录</button>
+        </div>
+    </div>
+
+    <!-- 引入axios库 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index-operator.js"></script>
+    
+</body>
+</html>
