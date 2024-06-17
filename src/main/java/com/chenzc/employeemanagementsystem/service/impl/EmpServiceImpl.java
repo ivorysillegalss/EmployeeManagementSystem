@@ -1,5 +1,6 @@
 package com.chenzc.employeemanagementsystem.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenzc.employeemanagementsystem.constants.CommonConstant;
 import com.chenzc.employeemanagementsystem.domain.Attendance;
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
@@ -59,6 +60,8 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public BasicResult showAttendance(Long id) {
-        return BasicResult.success(attendanceMapper.selectById(id));
+        QueryWrapper<Attendance> qw = new QueryWrapper<>();
+        qw.eq("emp_id",id);
+        return BasicResult.success(attendanceMapper.selectList(qw));
     }
 }

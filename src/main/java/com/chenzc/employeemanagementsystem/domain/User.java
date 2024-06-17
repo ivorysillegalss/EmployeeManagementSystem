@@ -30,7 +30,7 @@ public class User {
 
     private String phone;
 
-    private Integer createTIme;
+    private Integer createTime;
 
     private Integer updateTime;
 }

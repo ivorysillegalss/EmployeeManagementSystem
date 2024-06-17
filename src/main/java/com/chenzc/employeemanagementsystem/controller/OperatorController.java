@@ -2,7 +2,6 @@ package com.chenzc.employeemanagementsystem.controller;
 
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
 import com.chenzc.employeemanagementsystem.dto.OperatorDTO;
-import com.chenzc.employeemanagementsystem.mapper.OperationLogMapper;
 import com.chenzc.employeemanagementsystem.service.OperatorService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +13,12 @@ public class OperatorController {
     @Resource
     private OperatorService operatorService;
 
-    @GetMapping
+    @GetMapping("/init")
     public BasicResult getOperationLog() {
         return operatorService.showOperationLog();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/init/{id}")
     public BasicResult getOperationLog(@PathVariable("id") Long id) {
         return operatorService.showOperationLog(id);
     }
