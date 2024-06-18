@@ -27,6 +27,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
+    public BasicResult register(UserDTO userDTO) {
+        userMapper.insert(userDTO.getUser());
+        return BasicResult.success();
+    }
+
+    @Override
     public BasicResult login(UserDTO userDTO) {
         QueryWrapper<User> qw = new QueryWrapper<>();
         qw.eq("username", userDTO.getUsername()).eq("password", userDTO.getPassword());

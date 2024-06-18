@@ -9,6 +9,14 @@ import com.chenzc.employeemanagementsystem.dto.UserDTO;
  * @date 2024/06/14
  */
 public interface UserService {
+
+    /**
+     * 注册
+     * @param userDTO
+     * @return {@link BasicResult }
+     */
+    BasicResult register(UserDTO userDTO);
+
     /**
      * 登录
      * @param userDTO

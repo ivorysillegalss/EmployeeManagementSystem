@@ -38,3 +38,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 document.getElementById("resetPassword").addEventListener('click',function(event){
     window.location.href = './reset-password.html';
 })
+
+document.getElementById("register").addEventListener('click',function(event){
+    window.location.href = './register.html'
+})

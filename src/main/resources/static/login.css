@@ -7,18 +7,22 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 .login-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 500px;
+    height: 500px;
     text-align: center;
 }
+
 .login-container h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 30px;
 }
+
 .login-container input[type="text"],
 .login-container input[type="password"] {
     width: 80%;
@@ -27,8 +31,10 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .login-container button {
-    width: 100%;
+    margin-top: 30px;
+    width: 80%;
     padding: 10px;
     background-color: #4CAF50;
     border: none;
@@ -37,9 +43,11 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
+
 .login-container button:hover {
     background-color: #45a049;
 }
+
 .login-container .signup-link {
     margin-top: 20px;
     display: block;
@@ -59,4 +67,11 @@ body {
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+#main {
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: bolder;
 }
