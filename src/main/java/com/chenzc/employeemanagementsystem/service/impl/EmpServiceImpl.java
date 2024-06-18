@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenzc.employeemanagementsystem.constants.CommonConstant;
 import com.chenzc.employeemanagementsystem.domain.Attendance;
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
+import com.chenzc.employeemanagementsystem.domain.RewardPunishment;
 import com.chenzc.employeemanagementsystem.mapper.*;
 import com.chenzc.employeemanagementsystem.service.EmpService;
 import jakarta.annotation.Resource;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class EmpServiceImpl implements EmpService {
+public class EmpServiceImpl extends AbstractService implements EmpService {
 
     @Resource
     private AttendanceMapper attendanceMapper;
@@ -30,22 +31,22 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public BasicResult showReward(Long id) {
-        return BasicResult.success(rewardPunishmentMapper.selectById(id));
+        return BasicResult.success(rewardPunishmentMapper.selectList(selectByEmpId(id)));
     }
 
     @Override
     public BasicResult showSalary(Long id) {
-        return BasicResult.success(salaryMapper.selectById(id));
+        return BasicResult.success(salaryMapper.selectList(selectByEmpId(id)));
     }
 
     @Override
     public BasicResult showDepartment(Long id) {
-        return BasicResult.success(departmentMapper.selectById(id));
+        return BasicResult.success(departmentMapper.selectList(selectByEmpId(id)));
     }
 
     @Override
     public BasicResult showTrainingHistory(Long id) {
-        return BasicResult.success(trainingMapper.selectById(id));
+        return BasicResult.success(trainingMapper.selectList(selectByEmpId(id)));
     }
 
     @Override
@@ -60,8 +61,6 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public BasicResult showAttendance(Long id) {
-        QueryWrapper<Attendance> qw = new QueryWrapper<>();
-        qw.eq("emp_id",id);
-        return BasicResult.success(attendanceMapper.selectList(qw));
+        return BasicResult.success(attendanceMapper.selectList(selectByEmpId(id)));
     }
 }

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 //redis pipeline 定时任务 日志入库 没必要 TODO
 @Service
-public class HumanResourceServiceImpl implements HumanResourceService {
+public class HumanResourceServiceImpl extends AbstractService implements HumanResourceService {
 
     @Resource
     private SalaryMapper salaryMapper;
@@ -50,31 +50,50 @@ public class HumanResourceServiceImpl implements HumanResourceService {
 
     @Override
     public BasicResult doBonus(Long hrId, Long empId, Long amount) {
-        Salary salary = salaryMapper.selectById(empId);
+        List<Salary> salaries = salaryMapper.selectList(selectByEmpId(empId));
+        Salary salary = CollUtil.getFirst(salaries.iterator());
+
         if (Objects.isNull(salary)) {
             salary = Salary.builder()
+                    .empId(empId.intValue())
+                    .basicSalary(CommonConstant.ORIGINAL_SALARY)
                     .bonus(CommonConstant.ORIGINAL_BONUS)
                     .deductions(CommonConstant.ORIGINAL_DEDUCTIONS)
                     .totalSalary(CommonConstant.ORIGINAL_SALARY)
                     .salaryDate(DateUtil.getLastDayOfMonthTimestamp())
                     .build();
+            salary.setBonus(salary.getBonus() + amount.intValue());
+            salary.setTotalSalary(salary.getTotalSalary() + amount.intValue());
+            salaryMapper.insert(salary);
+        } else {
+            salary.setBonus(salary.getBonus() + amount.intValue());
+            salary.setTotalSalary(salary.getTotalSalary() + amount.intValue());
+            salaryMapper.updateById(salary);
         }
-        salary.setBonus(salary.getBonus() + amount.intValue());
         return BasicResult.success();
     }
 
     @Override
     public BasicResult doDeductions(Long hrId, Long empId, Long amount) {
-        Salary salary = salaryMapper.selectById(empId);
+        List<Salary> salaries = salaryMapper.selectList(selectByEmpId(empId));
+        Salary salary = CollUtil.getFirst(salaries.iterator());
+
         if (Objects.isNull(salary)) {
             salary = Salary.builder()
+                    .empId(empId.intValue())
                     .bonus(CommonConstant.ORIGINAL_BONUS)
                     .deductions(CommonConstant.ORIGINAL_DEDUCTIONS)
                     .totalSalary(CommonConstant.ORIGINAL_SALARY)
                     .salaryDate(DateUtil.getLastDayOfMonthTimestamp())
                     .build();
+            salary.setDeductions(salary.getDeductions() + amount.intValue());
+            salary.setTotalSalary(salary.getTotalSalary() - amount.intValue());
+            salaryMapper.insert(salary);
+        } else {
+            salary.setDeductions(salary.getDeductions() + amount.intValue());
+            salary.setTotalSalary(salary.getTotalSalary() - amount.intValue());
+            salaryMapper.updateById(salary);
         }
-        salary.setDeductions(salary.getDeductions() + amount.intValue());
         return BasicResult.success();
     }
 
@@ -88,8 +107,11 @@ public class HumanResourceServiceImpl implements HumanResourceService {
 
     @Override
     public BasicResult fireEmployee(Long hrId, Long fireEmpId) {
-        Employee employee = employeeMapper.selectById(fireEmpId);
-        employee.setStatus(JobStatusEnums.FALSE.getMessage());
+        List<Employee> employees = employeeMapper.selectList(selectByEmpId(fireEmpId));
+        Employee employee = CollUtil.getFirst(employees);
+
+        employee.setStatus(JobStatusEnums.FALSE.getCode());
+        employeeMapper.updateById(employee);
         return BasicResult.success();
     }
 
@@ -99,7 +121,10 @@ public class HumanResourceServiceImpl implements HumanResourceService {
         qw.eq("department_name", newDepartment);
         List<Department> departments = departmentMapper.selectList(qw);
         Employee employee = employeeMapper.selectById(modifiedEmpId);
-        employee.setDepartmentId(CollUtil.getFirst(departments.iterator()).getDepartmentId());
+        Department first = CollUtil.getFirst(departments.iterator());
+        employee.setDepartmentId(first.getDepartmentId());
+        employee.setDepartmentName(first.getDepartmentName());
+        employeeMapper.updateById(employee);
         return BasicResult.success();
     }
 }

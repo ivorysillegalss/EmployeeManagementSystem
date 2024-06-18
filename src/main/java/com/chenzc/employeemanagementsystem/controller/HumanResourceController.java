@@ -19,19 +19,19 @@ public class HumanResourceController {
         return humanResourceService.showEmployeeInfo();
     }
 
-    @PostMapping("/train/{id}")
-    public BasicResult doTraining(@PathVariable("id") Long id, @RequestBody Training training) {
-        return humanResourceService.doTraining(id, training);
+    @PostMapping("/train/{hrId}")
+    public BasicResult doTraining(@PathVariable("hrId") Long hrId, @RequestBody Training training) {
+        return humanResourceService.doTraining(hrId, training);
     }
 
-    @PostMapping("/bonus/{id}")
-    public BasicResult doBonus(@PathVariable("id") Long id, @RequestBody HumanResourceDTO humanResourceDTO) {
-        return humanResourceService.doBonus(id, humanResourceDTO.getEmpId(), humanResourceDTO.getAmount());
+    @PostMapping("/bonus/{hrId}")
+    public BasicResult doBonus(@PathVariable("hrId") Long hrId, @RequestBody HumanResourceDTO humanResourceDTO) {
+        return humanResourceService.doBonus(hrId, humanResourceDTO.getEmpId(), humanResourceDTO.getAmount());
     }
 
-    @PostMapping("/deductions/{id}")
-    public BasicResult doDeductions(@PathVariable("id") Long id, @RequestBody HumanResourceDTO humanResourceDTO) {
-        return humanResourceService.doDeductions(id, humanResourceDTO.getEmpId(), humanResourceDTO.getAmount());
+    @PostMapping("/deductions/{hrId}")
+    public BasicResult doDeductions(@PathVariable("hrId") Long hrId, @RequestBody HumanResourceDTO humanResourceDTO) {
+        return humanResourceService.doDeductions(hrId, humanResourceDTO.getEmpId(), humanResourceDTO.getAmount());
     }
 
     @PostMapping("/insert/{id}")

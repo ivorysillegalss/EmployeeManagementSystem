@@ -11,6 +11,7 @@ public class Salary {
     private Integer salaryId;
     private Integer empId;
     private Integer bonus;
+    private Integer basicSalary;
     private Integer deductions;
     private Integer totalSalary;
     private Long salaryDate;

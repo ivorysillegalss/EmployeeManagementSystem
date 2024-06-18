@@ -3,13 +3,14 @@ package com.chenzc.employeemanagementsystem.utils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 
 public class DateUtil {
     public static long getLastDayOfMonthTimestamp() {
         LocalDate currentDate = LocalDate.now();
         LocalDate lastDayOfMonth = currentDate.with(TemporalAdjusters.lastDayOfMonth());
-        LocalDateTime endOfDay = lastDayOfMonth.atTime(0, 0, 0);
-        return endOfDay.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        // 计算自 Unix 纪元以来的天数
+        return ChronoUnit.DAYS.between(LocalDate.ofEpochDay(0), lastDayOfMonth);
     }
 }
