@@ -19,18 +19,11 @@ import lombok.experimental.Accessors;
 public class User {
     @TableId
     private Integer userId;
-
     private String username;
-
     private String password;
-
     private String role;
-
     private String email;
-
     private String phone;
-
     private Integer createTime;
-
     private Integer updateTime;
 }

@@ -19,29 +19,17 @@ import lombok.experimental.Accessors;
 public class Employee {
     @TableId
     private Integer empId;
-
     private String name;
-
     private Integer empTime;
-
     private Boolean gender;
-
     private String address;
-
     private String phone;
-
     private String email;
-
     private Integer departmentId;
-
     private String departmentName;
 //    冗余数据 不用多查表
-
     private Integer positionId;
-
     private Integer titleId;
-
     private String status;
-
     private Integer userId;
 }
