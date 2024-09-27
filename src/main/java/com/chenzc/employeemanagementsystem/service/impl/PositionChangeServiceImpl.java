@@ -14,7 +14,7 @@ public class PositionChangeServiceImpl implements PositionChangeService {
     @Override
     public BasicResult insertPositionChangeApply(Integer userId, Integer hrId, String afterPosition, String formalPosition) {
         positionChangeMapper.insert(PositionChange.builder().afterPosition(afterPosition).userId(userId)
-                .hrId(hrId).status(0).formalPosition(formalPosition).build());
+                .hrId(hrId).status(false).formalPosition(formalPosition).build());
         return BasicResult.success();
     }
 
