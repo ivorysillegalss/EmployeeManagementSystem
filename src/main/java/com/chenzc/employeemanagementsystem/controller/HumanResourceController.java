@@ -4,8 +4,10 @@ import com.chenzc.employeemanagementsystem.domain.BasicResult;
 import com.chenzc.employeemanagementsystem.domain.Training;
 import com.chenzc.employeemanagementsystem.dto.EventDTO;
 import com.chenzc.employeemanagementsystem.dto.HumanResourceDTO;
+import com.chenzc.employeemanagementsystem.dto.PositionChangeDTO;
 import com.chenzc.employeemanagementsystem.service.EmpService;
 import com.chenzc.employeemanagementsystem.service.HumanResourceService;
+import com.chenzc.employeemanagementsystem.service.PositionChangeService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,9 @@ public class HumanResourceController {
 
     @Resource
     private HumanResourceService humanResourceService;
+
+    @Resource
+    private PositionChangeService positionChangeService;
 
     @GetMapping
     public BasicResult showEmpInfo() {
@@ -69,5 +74,11 @@ public class HumanResourceController {
     @PostMapping("/purchase/{empId}/{opinion}")
     public BasicResult hrPermitPurchase(@PathVariable("empId") Long empId, @PathVariable("opinion") Long opinion) {
         return humanResourceService.hrPermitPurchaseApply(empId.intValue(), opinion.intValue());
+    }
+
+    @PostMapping("/position/change")
+    public BasicResult positionChangeApply(@RequestBody PositionChangeDTO positionChangeDTO) {
+        return positionChangeService.insertPositionChangeApply(positionChangeDTO.getUserId(), positionChangeDTO.getHrId(),
+                positionChangeDTO.getAfterPosition(), positionChangeDTO.getFormalPosition());
     }
 }

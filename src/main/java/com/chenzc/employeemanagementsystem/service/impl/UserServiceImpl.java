@@ -93,6 +93,7 @@ public class UserServiceImpl implements UserService {
         qw.eq("status", EventStatusEnums.SUCCESS_APPLY.getCode());
         List<Event> eventList = eventMapper.selectList(qw);
         if (Objects.isNull(eventList) || CollUtil.isEmpty(eventList)) {
+            System.out.println("nil");
             return BasicResult.fail(RespEnums.FAIL);
         }
         return BasicResult.success(RespEnums.SUCCESS, qw);

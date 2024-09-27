@@ -36,4 +36,14 @@ public class BossController {
     public BasicResult permitPurchase(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion){
         return bossService.permitPurchaseApply(empId.intValue(),opinion.intValue());
     }
+
+    @GetMapping("/position/change")
+    public BasicResult getPositionChange(){
+        return bossService.ListPositionChangeActivity();
+    }
+
+    @PostMapping("/position/change/{pcId}/{opinion}")
+    public BasicResult permitPositionChange(@PathVariable("pcId") Long pcId,@PathVariable("opinion") Long opinion){
+        return bossService.permitPositionChangeApply(pcId.intValue(),opinion.intValue());
+    }
 }

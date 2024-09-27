@@ -152,6 +152,7 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
     public BasicResult showDayOffApply() {
         List<Vacation> vacations = vacationMapper.selectList(null);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            System.out.println("nil");
             return BasicResult.fail();
         }
         return BasicResult.success(vacations);
@@ -163,6 +164,7 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
         qw.eq("empId", empId);
         List<Vacation> vacations = vacationMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            System.out.println("nil");
             return BasicResult.fail();
         }
         vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
@@ -175,6 +177,7 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
         qw.eq("empId", empId);
         List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            System.out.println("nil");
             return BasicResult.fail();
         }
         vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
