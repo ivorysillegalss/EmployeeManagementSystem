@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="info.css">
+</head>
+<body>
+    <div class="container">
+        <h1>用户信息</h1>
+        <div id="userInfo">
+            <!-- 用户信息将在这里显示 -->
+        </div>
+        <button id="doAttendance">考勤</button>
+        <button id="getAttendance">查看考勤情况</button>
+        <button id="getReward">查看奖罚情况</button>
+        <button id="getTraining">查看培训情况</button>
+        <button id="getDepartment">查看部门信息</button>
+        <button id="getSalary">查看薪水情况</button>
+        <button id="logoutButton">注销</button>
+    </div>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>详细信息</h2>
+            <div id="modalBody">
+                <!-- 表单内容将被动态添加 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入axios库 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="info.js"></script>
+</body>
+</html>
