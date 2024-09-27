@@ -21,4 +21,13 @@ public interface BossService {
      * @return {@link BasicResult }
      */
     public BasicResult permitMeetingApply(int meetingId,int opinion);
+
+
+    /**
+     * 表示
+     * @param empId
+     * @param opinion 表示是否批准会议 1代表通过 -1 代表不通过
+     * @return {@link BasicResult }
+     */
+    public BasicResult permitVacationApply(int empId,int opinion);
 }

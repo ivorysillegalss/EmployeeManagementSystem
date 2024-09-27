@@ -23,6 +23,9 @@ import java.util.Objects;
 public class HumanResourceServiceImpl extends AbstractService implements HumanResourceService {
 
     @Resource
+    private VacationMapper vacationMapper;
+
+    @Resource
     private SalaryMapper salaryMapper;
 
     @Resource
@@ -139,6 +142,27 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
     @Override
     public BasicResult applyMeeting(Long hrId, String name, String location) {
         eventMapper.insert(Event.builder().location(location).name(name).status(Integer.parseInt(EventStatusEnums.APPLYING.getCode())).build());
+        return BasicResult.success();
+    }
+
+    @Override
+    public BasicResult showDayOffApply() {
+        List<Vacation> vacations = vacationMapper.selectList(null);
+        if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            return BasicResult.fail();
+        }
+        return BasicResult.success(vacations);
+    }
+
+    @Override
+    public BasicResult hrPermitVacationApply(int empId, int opinion) {
+        QueryWrapper<Vacation> qw = new QueryWrapper<>();
+        qw.eq("empId", empId);
+        List<Vacation> vacations = vacationMapper.selectList(qw);
+        if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            return BasicResult.fail();
+        }
+        vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
         return BasicResult.success();
     }
 }

@@ -69,9 +69,4 @@ public interface EmpService {
     BasicResult takingDayOffApply(Long empId);
 
 
-    /**
-     * 列举请假申请
-     * @return {@link BasicResult }
-     */
-    BasicResult showDayOffApply();
 }

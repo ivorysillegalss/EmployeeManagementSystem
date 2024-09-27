@@ -63,11 +63,11 @@ public class HumanResourceController {
 
     @GetMapping("/vacation")
     public BasicResult getDayOffInfo(){
-        return empService.showDayOffApply();
+        return humanResourceService.showDayOffApply();
     }
 
-    @PostMapping("/vacation/{empId}")
-    public BasicResult hrPermitDayOff(@PathVariable("empId") Long empId) {
-        return empService.takingDayOffApply(empId);
+    @PostMapping("/vacation/{empId}/{opinion}")
+    public BasicResult hrPermitDayOff(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion) {
+        return humanResourceService.hrPermitVacationApply(empId.intValue(),opinion.intValue());
     }
 }

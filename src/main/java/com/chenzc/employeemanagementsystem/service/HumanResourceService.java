@@ -82,4 +82,18 @@ public interface HumanResourceService {
 
     BasicResult applyMeeting(Long hrId, String name,String location);
 
+
+    /**
+     * 列举请假申请
+     * @return {@link BasicResult }
+     */
+    BasicResult showDayOffApply();
+
+    /**
+     * 表示
+     * @param empId
+     * @param opinion 表示是否批准会议 1代表通过 -1 代表不通过
+     * @return {@link BasicResult }
+     */
+    public BasicResult hrPermitVacationApply(int empId,int opinion);
 }

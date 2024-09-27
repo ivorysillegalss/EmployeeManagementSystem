@@ -78,12 +78,4 @@ public class EmpServiceImpl extends AbstractService implements EmpService {
         return BasicResult.success();
     }
 
-    @Override
-    public BasicResult showDayOffApply() {
-        List<Vacation> vacations = vacationMapper.selectList(null);
-        if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)){
-            return BasicResult.fail();
-        }
-        return BasicResult.success(vacations);
-    }
 }
