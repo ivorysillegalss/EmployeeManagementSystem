@@ -52,4 +52,11 @@ public interface UserService {
      * @return {@link BasicResult }
      */
     BasicResult showMeeting();
+
+    /**
+     * 申请采购
+     * @param userId
+     * @return {@link BasicResult }
+     */
+    BasicResult applyPurchase(int userId,String entity);
 }

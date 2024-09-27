@@ -6,11 +6,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenzc.employeemanagementsystem.constants.CommonConstant;
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
 import com.chenzc.employeemanagementsystem.domain.Event;
+import com.chenzc.employeemanagementsystem.domain.Purchase;
 import com.chenzc.employeemanagementsystem.domain.User;
 import com.chenzc.employeemanagementsystem.dto.UserDTO;
 import com.chenzc.employeemanagementsystem.enums.EventStatusEnums;
 import com.chenzc.employeemanagementsystem.enums.RespEnums;
 import com.chenzc.employeemanagementsystem.mapper.EventMapper;
+import com.chenzc.employeemanagementsystem.mapper.PurchaseMapper;
 import com.chenzc.employeemanagementsystem.mapper.UserMapper;
 import com.chenzc.employeemanagementsystem.service.UserService;
 import jakarta.annotation.Resource;
@@ -32,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private EventMapper eventMapper;
+
+    @Resource
+    private PurchaseMapper purchaseMapper;
 
     @Override
     public BasicResult register(UserDTO userDTO) {
@@ -91,5 +96,11 @@ public class UserServiceImpl implements UserService {
             return BasicResult.fail(RespEnums.FAIL);
         }
         return BasicResult.success(RespEnums.SUCCESS, qw);
+    }
+
+    @Override
+    public BasicResult applyPurchase(int userId, String entity) {
+        purchaseMapper.insert(Purchase.builder().entity(entity).userId(userId).build());
+        return BasicResult.success();
     }
 }

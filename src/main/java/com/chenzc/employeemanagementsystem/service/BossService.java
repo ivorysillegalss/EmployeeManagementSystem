@@ -30,4 +30,8 @@ public interface BossService {
      * @return {@link BasicResult }
      */
     public BasicResult permitVacationApply(int empId,int opinion);
+
+
+    public BasicResult permitPurchaseApply(int empId,int opinion);
+
 }

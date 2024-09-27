@@ -31,4 +31,9 @@ public class BossController {
     public BasicResult permitVacations(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion){
         return bossService.permitVacationApply(empId.intValue(),opinion.intValue());
     }
+
+    @PostMapping("/purchase/{empId}/{opinion}")
+    public BasicResult permitPurchase(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion){
+        return bossService.permitPurchaseApply(empId.intValue(),opinion.intValue());
+    }
 }

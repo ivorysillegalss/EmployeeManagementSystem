@@ -72,6 +72,7 @@ public interface HumanResourceService {
 
     /**
      * 修改职位
+     *
      * @param hrId
      * @param modifiedEmpId
      * @param newDepartment
@@ -80,20 +81,31 @@ public interface HumanResourceService {
     BasicResult modifyDepartment(Long hrId, Long modifiedEmpId, String newDepartment);
 
 
-    BasicResult applyMeeting(Long hrId, String name,String location);
+    BasicResult applyMeeting(Long hrId, String name, String location);
 
 
     /**
      * 列举请假申请
+     *
      * @return {@link BasicResult }
      */
     BasicResult showDayOffApply();
 
     /**
      * 表示
+     *
      * @param empId
      * @param opinion 表示是否批准会议 1代表通过 -1 代表不通过
      * @return {@link BasicResult }
      */
-    public BasicResult hrPermitVacationApply(int empId,int opinion);
+    public BasicResult hrPermitVacationApply(int empId, int opinion);
+
+    /**
+     * 表示
+     *
+     * @param empId
+     * @param opinion 表示是否批准采购 1代表通过 -1 代表不通过
+     * @return {@link BasicResult }
+     */
+    BasicResult hrPermitPurchaseApply(int empId, int opinion);
 }

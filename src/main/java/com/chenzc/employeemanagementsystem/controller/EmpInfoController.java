@@ -1,12 +1,15 @@
 package com.chenzc.employeemanagementsystem.controller;
 
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
+import com.chenzc.employeemanagementsystem.dto.PurchaseDTO;
 import com.chenzc.employeemanagementsystem.service.EmpService;
+import com.chenzc.employeemanagementsystem.service.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * 展示员工基本信息
+ *
  * @author chenz
  * @date 2024/06/16
  */
@@ -16,6 +19,9 @@ public class EmpInfoController {
 
     @Resource
     private EmpService empService;
+
+    @Resource
+    private UserService userService;
 
     @GetMapping("/reward/{id}")
     public BasicResult getReward(@PathVariable("id") Long id) {
@@ -48,5 +54,12 @@ public class EmpInfoController {
     }
 
     @PostMapping("/vacation/{empId}")
-    public BasicResult takingDayOffApply(@PathVariable("empId") Long empId){return empService.takingDayOffApply(empId);}
+    public BasicResult takingDayOffApply(@PathVariable("empId") Long empId) {
+        return empService.takingDayOffApply(empId);
+    }
+
+    @PostMapping("/purchase/{empId}")
+    public BasicResult takingPurchaseApply(@PathVariable("empId") Long empId, @RequestBody PurchaseDTO purchaseDTO) {
+        return userService.applyPurchase(empId.intValue(), purchaseDTO.getEntity());
+    }
 }

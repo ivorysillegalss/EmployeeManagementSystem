@@ -16,9 +16,6 @@ public class HumanResourceController {
     @Resource
     private HumanResourceService humanResourceService;
 
-    @Resource
-    private EmpService empService;
-
     @GetMapping
     public BasicResult showEmpInfo() {
         return humanResourceService.showEmployeeInfo();
@@ -54,20 +51,23 @@ public class HumanResourceController {
         return humanResourceService.modifyDepartment(hrId, humanResourceDTO.getModifiedEmpId(), humanResourceDTO.getNewDepartment());
     }
 
-
     @PostMapping("/meeting}")
     public BasicResult applyMeeting(@RequestBody EventDTO eventDTO) {
         return humanResourceService.applyMeeting(eventDTO.getHrId(), eventDTO.getName(), eventDTO.getLocation());
     }
 
-
     @GetMapping("/vacation")
-    public BasicResult getDayOffInfo(){
+    public BasicResult getDayOffInfo() {
         return humanResourceService.showDayOffApply();
     }
 
     @PostMapping("/vacation/{empId}/{opinion}")
-    public BasicResult hrPermitDayOff(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion) {
-        return humanResourceService.hrPermitVacationApply(empId.intValue(),opinion.intValue());
+    public BasicResult hrPermitDayOff(@PathVariable("empId") Long empId, @PathVariable("opinion") Long opinion) {
+        return humanResourceService.hrPermitVacationApply(empId.intValue(), opinion.intValue());
+    }
+
+    @PostMapping("/purchase/{empId}/{opinion}")
+    public BasicResult hrPermitPurchase(@PathVariable("empId") Long empId, @PathVariable("opinion") Long opinion) {
+        return humanResourceService.hrPermitPurchaseApply(empId.intValue(), opinion.intValue());
     }
 }

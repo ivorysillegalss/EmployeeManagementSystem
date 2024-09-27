@@ -4,9 +4,11 @@ import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenzc.employeemanagementsystem.domain.BasicResult;
 import com.chenzc.employeemanagementsystem.domain.Event;
+import com.chenzc.employeemanagementsystem.domain.Purchase;
 import com.chenzc.employeemanagementsystem.domain.Vacation;
 import com.chenzc.employeemanagementsystem.enums.RespEnums;
 import com.chenzc.employeemanagementsystem.mapper.EventMapper;
+import com.chenzc.employeemanagementsystem.mapper.PurchaseMapper;
 import com.chenzc.employeemanagementsystem.mapper.VacationMapper;
 import com.chenzc.employeemanagementsystem.service.BossService;
 import jakarta.annotation.Resource;
@@ -17,6 +19,9 @@ import java.util.Objects;
 
 @Service
 public class BossServiceImpl implements BossService {
+
+    @Resource
+    private PurchaseMapper purchaseMapper;
 
     @Resource
     private EventMapper eventMapper;
@@ -47,6 +52,18 @@ public class BossServiceImpl implements BossService {
         QueryWrapper<Vacation> qw = new QueryWrapper<>();
         qw.eq("empId", empId);
         List<Vacation> vacations = vacationMapper.selectList(qw);
+        if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            return BasicResult.fail();
+        }
+        vacations.getFirst().setBossOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        return BasicResult.success();
+    }
+
+    @Override
+    public BasicResult permitPurchaseApply(int empId, int opinion) {
+        QueryWrapper<Purchase> qw = new QueryWrapper<>();
+        qw.eq("empId", empId);
+        List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
         }

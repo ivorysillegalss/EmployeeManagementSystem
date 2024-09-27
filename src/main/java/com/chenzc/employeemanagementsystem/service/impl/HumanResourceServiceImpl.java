@@ -42,6 +42,9 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
 
 
     @Resource
+    private PurchaseMapper purchaseMapper;
+
+    @Resource
     private EventMapper eventMapper;
 
     @Override
@@ -159,6 +162,18 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
         QueryWrapper<Vacation> qw = new QueryWrapper<>();
         qw.eq("empId", empId);
         List<Vacation> vacations = vacationMapper.selectList(qw);
+        if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
+            return BasicResult.fail();
+        }
+        vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        return BasicResult.success();
+    }
+
+    @Override
+    public BasicResult hrPermitPurchaseApply(int empId, int opinion) {
+        QueryWrapper<Purchase> qw = new QueryWrapper<>();
+        qw.eq("empId", empId);
+        List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
         }
