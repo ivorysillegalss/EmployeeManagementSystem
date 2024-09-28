@@ -161,26 +161,28 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
     @Override
     public BasicResult hrPermitVacationApply(int empId, int opinion) {
         QueryWrapper<Vacation> qw = new QueryWrapper<>();
-        qw.eq("empId", empId);
+        qw.eq("user_id", empId);
         List<Vacation> vacations = vacationMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             System.out.println("nil");
             return BasicResult.fail();
         }
         vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        vacationMapper.updateById(vacations.getFirst());
         return BasicResult.success();
     }
 
     @Override
     public BasicResult hrPermitPurchaseApply(int empId, int opinion) {
         QueryWrapper<Purchase> qw = new QueryWrapper<>();
-        qw.eq("empId", empId);
+        qw.eq("user_id", empId);
         List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             System.out.println("nil");
             return BasicResult.fail();
         }
         vacations.getFirst().setHrOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        purchaseMapper.updateById(vacations.getFirst());
         return BasicResult.success();
     }
 }

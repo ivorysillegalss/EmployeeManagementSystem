@@ -45,42 +45,46 @@ public class BossServiceImpl implements BossService {
             return BasicResult.fail();
         }
         eventList.getFirst().setStatus(opinion);
+        eventMapper.updateById(eventList.getFirst());
         return BasicResult.success();
     }
 
     @Override
     public BasicResult permitVacationApply(int empId, int opinion) {
         QueryWrapper<Vacation> qw = new QueryWrapper<>();
-        qw.eq("empId", empId);
+        qw.eq("user_id", empId);
         List<Vacation> vacations = vacationMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
         }
         vacations.getFirst().setBossOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        vacationMapper.updateById(vacations.getFirst());
         return BasicResult.success();
     }
 
     @Override
     public BasicResult permitPurchaseApply(int empId, int opinion) {
         QueryWrapper<Purchase> qw = new QueryWrapper<>();
-        qw.eq("empId", empId);
+        qw.eq("user_id", empId);
         List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
         }
         vacations.getFirst().setBossOpinion(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        purchaseMapper.updateById(vacations.getFirst());
         return BasicResult.success();
     }
 
     @Override
     public BasicResult permitPositionChangeApply(int positionChangeId, int opinion) {
         QueryWrapper<PositionChange> qw = new QueryWrapper<>();
-        qw.eq("position_change_id", positionChangeId);
+        qw.eq("user_id", positionChangeId);
         List<PositionChange> vacations = positionChangeMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
         }
         vacations.getFirst().setStatus(opinion == 1 ? Boolean.TRUE : Boolean.FALSE);
+        positionChangeMapper.updateById(vacations.getFirst());
         return BasicResult.success();
     }
 

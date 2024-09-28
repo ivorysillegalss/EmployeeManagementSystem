@@ -27,7 +27,7 @@ public class BossController {
         return bossService.permitMeetingApply(meetingId.intValue(),opinion.intValue());
     }
 
-    @PostMapping("/vacations/{empId}/{opinion}")
+    @PostMapping("/vacation/{empId}/{opinion}")
     public BasicResult permitVacations(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion){
         return bossService.permitVacationApply(empId.intValue(),opinion.intValue());
     }

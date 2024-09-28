@@ -52,10 +52,4 @@ document.getElementById("register").addEventListener('click', function (event) {
     window.location.href = './register.html'
 })
 
-document.getElementById("showVacation").addEventListener('click', function (event) {
-    window.location.href = './boss/meeting/bossevent.html'
-})
 
-document.getElementById("applyMeeting").addEventListener('click', function (event) {
-    window.location.href = './hr/meeting/hrmeeting.html'
-})

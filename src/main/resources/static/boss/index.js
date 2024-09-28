@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const viewMeetingBtn = document.getElementById('viewMeetingBtn');
     const viewProcurementBtn = document.getElementById('viewProcurementBtn');
     const viewHRChangesBtn = document.getElementById('viewHRChangesBtn');
+    const viewTakingDayOff = document.getElementById('viewTakingDayOff');
 
     // 绑定点击事件
     viewMeetingBtn.addEventListener('click', function() {
@@ -20,5 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = './bosshrchanges.html'; // 页面路径可以根据你的实际情况修改
     });
 
+    viewTakingDayOff.addEventListener('click',function (){
+        window.location.href = './vacation/bossAuditvacation.html'
+    })
 
 });
