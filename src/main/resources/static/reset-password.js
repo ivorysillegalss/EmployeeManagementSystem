@@ -17,7 +17,7 @@ document.getElementById('resetPasswordForm').addEventListener('submit', function
         .then(function (response) {
             var resultDiv = document.getElementById('result');
             resultDiv.className = ''; // 清空之前的类
-            if (response.data.code == "0") {
+            if (response.data.code === "0") {
                 resultDiv.innerText = '密码重置成功';
                 resultDiv.classList.add('success');
                 document.getElementById('resetPasswordForm').reset();

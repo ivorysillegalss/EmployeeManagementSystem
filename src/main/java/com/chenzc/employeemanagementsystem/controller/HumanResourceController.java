@@ -56,7 +56,7 @@ public class HumanResourceController {
         return humanResourceService.modifyDepartment(hrId, humanResourceDTO.getModifiedEmpId(), humanResourceDTO.getNewDepartment());
     }
 
-    @PostMapping("/meeting}")
+    @PostMapping("/meeting")
     public BasicResult applyMeeting(@RequestBody EventDTO eventDTO) {
         return humanResourceService.applyMeeting(eventDTO.getHrId(), eventDTO.getName(), eventDTO.getLocation());
     }

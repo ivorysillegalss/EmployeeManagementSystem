@@ -178,3 +178,8 @@ window.addEventListener('click', function (event) {
 document.getElementById('exit').addEventListener('click', function (event) {
     window.location.href = '../login.html'
 })
+
+
+document.getElementById('permitVacation').addEventListener('click',function (){
+    window.location.href = './meeting/hrmeeting.html'
+})

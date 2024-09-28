@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("nil");
             return BasicResult.fail(RespEnums.FAIL);
         }
-        return BasicResult.success(RespEnums.SUCCESS, qw);
+        return BasicResult.success(RespEnums.SUCCESS, eventList);
     }
 
     @Override

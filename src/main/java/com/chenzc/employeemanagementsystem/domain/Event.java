@@ -1,5 +1,6 @@
 package com.chenzc.employeemanagementsystem.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -8,6 +9,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 public class Event {
+    @TableId
     private Integer eventId;
     private String name;
     private Integer time;

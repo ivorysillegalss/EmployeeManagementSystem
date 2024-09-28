@@ -74,7 +74,7 @@ public class EmpServiceImpl extends AbstractService implements EmpService {
 
     @Override
     public BasicResult takingDayOffApply(Long empId) {
-        vacationMapper.insert(Vacation.builder().bossOpinion(Boolean.FALSE).hrOpinion(Boolean.FALSE).userId(empId.intValue()).build());
+        vacationMapper.insert(Vacation.builder().bossOpinion(Boolean.FALSE).hrOpinion(Boolean.FALSE).userId(empId.intValue()).time((int) System.currentTimeMillis()).build());
         return BasicResult.success();
     }
 

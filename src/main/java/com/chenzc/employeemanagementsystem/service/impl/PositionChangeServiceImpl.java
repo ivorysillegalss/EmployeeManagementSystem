@@ -5,7 +5,9 @@ import com.chenzc.employeemanagementsystem.domain.PositionChange;
 import com.chenzc.employeemanagementsystem.mapper.PositionChangeMapper;
 import com.chenzc.employeemanagementsystem.service.PositionChangeService;
 import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PositionChangeServiceImpl implements PositionChangeService {
 
     @Resource

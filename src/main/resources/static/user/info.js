@@ -213,3 +213,7 @@ document.getElementById('getSalary').addEventListener('click', function () {
             showModal('请求失败，请稍后再试。');
         });
 });
+
+document.getElementById("showMeeting").addEventListener('click',function(event){
+    window.location.href = '../meeting/empevent.html'
+})

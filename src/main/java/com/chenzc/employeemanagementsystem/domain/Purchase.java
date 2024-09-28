@@ -1,5 +1,6 @@
 package com.chenzc.employeemanagementsystem.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -8,6 +9,7 @@ import lombok.experimental.Accessors;
 @Builder
 @Data
 public class Purchase {
+    @TableId
     private Integer purchaseId;
     private String entity;
     private Boolean hrOpinion;
