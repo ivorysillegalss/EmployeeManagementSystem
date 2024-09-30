@@ -58,5 +58,8 @@ public interface BossService {
      * 列举人事变动
      * @return {@link BasicResult }
      */
-    public BasicResult ListPositionChangeActivity();
+    public BasicResult listPositionChangeActivity();
+
+
+    public BasicResult listPurchaseApplications();
 }

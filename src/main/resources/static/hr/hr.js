@@ -180,10 +180,14 @@ document.getElementById('exit').addEventListener('click', function (event) {
 })
 
 
-document.getElementById('applyMeeting').addEventListener('click',function (){
+document.getElementById('applyMeeting').addEventListener('click', function () {
     window.location.href = './meeting/hrmeeting.html'
 })
 
 document.getElementById("permitVacation").addEventListener('click', function () {
     window.location.href = './vacation/hrAuditvacation.html'
+})
+
+document.getElementById("permitPurchase").addEventListener('click', function () {
+    window.location.href = './purchase/columns.html'
 })

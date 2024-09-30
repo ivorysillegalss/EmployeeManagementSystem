@@ -100,8 +100,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public BasicResult applyPurchase(int userId, String entity) {
-        purchaseMapper.insert(Purchase.builder().entity(entity).userId(userId).build());
+    public BasicResult applyPurchase(int userId, String entity,int nums) {
+        purchaseMapper.insert(Purchase.builder().entity(entity).userId(userId).nums(nums).build());
         return BasicResult.success();
     }
 }

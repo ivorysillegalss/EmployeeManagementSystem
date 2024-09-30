@@ -60,6 +60,6 @@ public class EmpInfoController {
 
     @PostMapping("/purchase/{empId}")
     public BasicResult takingPurchaseApply(@PathVariable("empId") Long empId, @RequestBody PurchaseDTO purchaseDTO) {
-        return userService.applyPurchase(empId.intValue(), purchaseDTO.getEntity());
+        return userService.applyPurchase(empId.intValue(), purchaseDTO.getEntity(),purchaseDTO.getNums());
     }
 }

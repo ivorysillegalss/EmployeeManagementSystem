@@ -96,7 +96,7 @@ document.getElementById('getAttendance').addEventListener('click', function () {
                         const formattedDate = date.toLocaleString();
                         if (record.status == "1") {
                             content += `<li>${formattedDate}   &nbsp&nbsp&nbsp&nbsp  已签到</li>`;
-                        }else{
+                        } else {
                             content += `<li>${formattedDate}   &nbsp&nbsp&nbsp&nbsp  未签</li>`
                         }
                     });
@@ -214,6 +214,10 @@ document.getElementById('getSalary').addEventListener('click', function () {
         });
 });
 
-document.getElementById("showMeeting").addEventListener('click',function(event){
+document.getElementById("showMeeting").addEventListener('click', function (event) {
     window.location.href = '../meeting/empevent.html'
+})
+
+document.getElementById("applyPurchase").addEventListener('click', function (event) {
+    window.location.href = './purchase/application.html'
 })

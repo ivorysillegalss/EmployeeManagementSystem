@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     viewProcurementBtn.addEventListener('click', function() {
         // 跳转到查看采购页面
-        window.location.href = './bossprocurement.html'; // 页面路径可以根据你的实际情况修改
+        window.location.href = './purchase/columns.html'; // 页面路径可以根据你的实际情况修改
     });
 
     viewHRChangesBtn.addEventListener('click', function() {

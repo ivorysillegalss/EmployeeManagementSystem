@@ -32,6 +32,8 @@ public class BossController {
         return bossService.permitVacationApply(empId.intValue(),opinion.intValue());
     }
 
+
+//    TODO 写的草率 以用户为颗粒度 只能更新该用户第一个申请
     @PostMapping("/purchase/{empId}/{opinion}")
     public BasicResult permitPurchase(@PathVariable("empId") Long empId,@PathVariable("opinion") Long opinion){
         return bossService.permitPurchaseApply(empId.intValue(),opinion.intValue());
@@ -39,11 +41,16 @@ public class BossController {
 
     @GetMapping("/position/change")
     public BasicResult getPositionChange(){
-        return bossService.ListPositionChangeActivity();
+        return bossService.listPositionChangeActivity();
     }
 
     @PostMapping("/position/change/{pcId}/{opinion}")
     public BasicResult permitPositionChange(@PathVariable("pcId") Long pcId,@PathVariable("opinion") Long opinion){
         return bossService.permitPositionChangeApply(pcId.intValue(),opinion.intValue());
+    }
+
+    @GetMapping("/purchase")
+    public BasicResult showPurchase(){
+        return bossService.listPurchaseApplications();
     }
 }

@@ -12,6 +12,7 @@ public class Purchase {
     @TableId
     private Integer purchaseId;
     private String entity;
+    private Integer nums;
     private Boolean hrOpinion;
     private Boolean bossOpinion;
     private Integer userId;

@@ -175,7 +175,7 @@ public class HumanResourceServiceImpl extends AbstractService implements HumanRe
     @Override
     public BasicResult hrPermitPurchaseApply(int empId, int opinion) {
         QueryWrapper<Purchase> qw = new QueryWrapper<>();
-        qw.eq("user_id", empId);
+        qw.eq("purchase_id", empId);
         List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             System.out.println("nil");

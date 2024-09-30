@@ -58,5 +58,5 @@ public interface UserService {
      * @param userId
      * @return {@link BasicResult }
      */
-    BasicResult applyPurchase(int userId,String entity);
+    BasicResult applyPurchase(int userId,String entity,int nums);
 }

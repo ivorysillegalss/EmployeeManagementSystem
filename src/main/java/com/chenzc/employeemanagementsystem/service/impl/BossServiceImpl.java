@@ -65,7 +65,7 @@ public class BossServiceImpl implements BossService {
     @Override
     public BasicResult permitPurchaseApply(int empId, int opinion) {
         QueryWrapper<Purchase> qw = new QueryWrapper<>();
-        qw.eq("user_id", empId);
+        qw.eq("purchase_id", empId);
         List<Purchase> vacations = purchaseMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
@@ -89,13 +89,23 @@ public class BossServiceImpl implements BossService {
     }
 
     @Override
-    public BasicResult ListPositionChangeActivity() {
+    public BasicResult listPositionChangeActivity() {
         List<PositionChange> positionChanges = positionChangeMapper.selectList(null);
         if (Objects.isNull(positionChanges) || CollUtil.isEmpty(positionChanges)) {
             System.out.println("nil");
             return BasicResult.fail();
         }
         return BasicResult.success();
+    }
+
+    @Override
+    public BasicResult listPurchaseApplications() {
+        List<Purchase> purchases = purchaseMapper.selectList(null);
+        if (Objects.isNull(purchases) || CollUtil.isEmpty(purchases)) {
+            System.out.println("nil");
+            return BasicResult.fail();
+        }
+        return BasicResult.success(purchases);
     }
 
 }
