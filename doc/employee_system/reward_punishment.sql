@@ -1,4 +1,4 @@
-create table if not exists reward_punishment
+create table reward_punishment
 (
     rp_id       int auto_increment
         primary key,

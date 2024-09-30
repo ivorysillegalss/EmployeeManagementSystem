@@ -1,4 +1,4 @@
-create table if not exists department
+create table department
 (
     department_id   int auto_increment
         primary key,

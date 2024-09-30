@@ -1,4 +1,4 @@
-create table if not exists attendance
+create table attendance
 (
     attendance_id int auto_increment
         primary key,

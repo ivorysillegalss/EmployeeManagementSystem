@@ -1,4 +1,4 @@
-create table if not exists operator
+create table operator
 (
     operator_id   int auto_increment
         primary key,

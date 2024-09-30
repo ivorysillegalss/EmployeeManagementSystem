@@ -1,4 +1,4 @@
-create table if not exists employee
+create table employee
 (
     emp_id          int auto_increment
         primary key,

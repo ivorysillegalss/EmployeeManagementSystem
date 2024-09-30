@@ -1,4 +1,4 @@
-create table if not exists action_log
+create table action_log
 (
     action_id   int auto_increment
         primary key,

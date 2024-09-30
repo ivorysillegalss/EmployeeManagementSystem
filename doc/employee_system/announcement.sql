@@ -1,4 +1,4 @@
-create table if not exists announcement
+create table announcement
 (
     announcement_id int auto_increment
         primary key,

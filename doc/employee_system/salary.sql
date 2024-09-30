@@ -1,4 +1,4 @@
-create table if not exists salary
+create table salary
 (
     salary_id    int auto_increment
         primary key,

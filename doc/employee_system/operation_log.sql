@@ -1,4 +1,4 @@
-create table if not exists operation_log
+create table operation_log
 (
     log_id      int auto_increment
         primary key,
