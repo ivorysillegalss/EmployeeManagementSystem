@@ -18,11 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     viewHRChangesBtn.addEventListener('click', function() {
         // 跳转到查看人事变动页面
-        window.location.href = './bosshrchanges.html'; // 页面路径可以根据你的实际情况修改
+        window.location.href = './positionchange/positionchange.html'; // 页面路径可以根据你的实际情况修改
     });
 
     viewTakingDayOff.addEventListener('click',function (){
         window.location.href = './vacation/bossAuditvacation.html'
     })
+
 
 });

@@ -191,3 +191,7 @@ document.getElementById("permitVacation").addEventListener('click', function () 
 document.getElementById("permitPurchase").addEventListener('click', function () {
     window.location.href = './purchase/columns.html'
 })
+
+document.getElementById("positionChange").addEventListener('click', function () {
+    window.location.href = './positionchange/position_change.html'
+})

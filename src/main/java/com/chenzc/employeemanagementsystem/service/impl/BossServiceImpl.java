@@ -78,7 +78,7 @@ public class BossServiceImpl implements BossService {
     @Override
     public BasicResult permitPositionChangeApply(int positionChangeId, int opinion) {
         QueryWrapper<PositionChange> qw = new QueryWrapper<>();
-        qw.eq("user_id", positionChangeId);
+        qw.eq("position_change_id", positionChangeId);
         List<PositionChange> vacations = positionChangeMapper.selectList(qw);
         if (Objects.isNull(vacations) || CollUtil.isEmpty(vacations)) {
             return BasicResult.fail();
@@ -95,7 +95,7 @@ public class BossServiceImpl implements BossService {
             System.out.println("nil");
             return BasicResult.fail();
         }
-        return BasicResult.success();
+        return BasicResult.success(positionChanges);
     }
 
     @Override
